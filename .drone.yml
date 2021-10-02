@@ -1,0 +1,14 @@
+---
+kind: pipeline
+type: docker
+name: w3c validate
+steps:
+  - name: generate html from php
+    image: php:7.4-cli
+    commands:
+      - ./convert.sh | php | tee index.html
+  - name: w3c validate
+    image: python:3.9-bullseye
+    commands:
+      - pip install -U Online-W3C-Validator
+      - w3c_validator index.html
