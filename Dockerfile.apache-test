@@ -5,7 +5,6 @@ WORKDIR /usr/src
 COPY ./CNMT-310-HTML-Assignment ./CNMT-310-HTML-Assignment
 COPY ./convert.sh .
 COPY ./init.sh .
-RUN ls
 
 RUN ./init.sh
 RUN cp ./output/* /var/www/html
