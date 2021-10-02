@@ -3,6 +3,10 @@ kind: pipeline
 type: docker
 name: w3c validate
 steps:
+  - name: initialize git submodules
+    image: alpine/git
+    commands:
+      - git submodule update --init
   - name: generate html from php
     image: php:7.4-cli
     commands:
